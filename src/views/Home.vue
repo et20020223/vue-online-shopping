@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <a href="#" @click.prevent="signout">登出</a>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  methods:{
+    signout(){
+        const api = `${process.env.VUE_APP_APIPATH}/logout`;
+        const vm = this;
+        this.$http.post(api).then((response) => {
+            console.log(response.data);
+            if (response.data.success) {
+            vm.$router.push('/login');
+            }
+        });
+    }
   }
 }
 </script>
