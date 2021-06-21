@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css';
+
+import 'bootstrap'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -10,6 +14,8 @@ Vue.config.productionTip = false;
 Vue.use(VueAxios,axios);
 //允許跨源
 axios.defaults.withCredentials =true;
+
+Vue.component('Loading',Loading);
 
 new Vue({
   router,
@@ -30,7 +36,7 @@ router.beforeEach((to, from, next) => {
         next();
       } else {
         alert(response.data.message);
-        next({ path: '/Login' })
+        next({ path: '/admin/products' })
       }
     });
   } else {

@@ -5,10 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isLoading:false,
+    messages:[]
   },
   mutations: {
+    isLoading(playload){
+      this.state.isLoading = playload;
+    }
   },
   actions: {
+    
   },
   modules: {
   }

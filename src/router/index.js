@@ -7,12 +7,6 @@ Vue.use(VueRouter)
 const routes = [
   
   {
-    path: '/',
-    name: 'Home',
-    component: () => import('../views/Home.vue'),
-    meta:{requiresAuth:true}
-  },
-  {
     path: '/login',
     name: 'Login',
     // route level code-splitting
@@ -20,6 +14,20 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     /* webpackChunkName: "about"  '../views/About.vue'*/
     component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/admin',
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard.vue'),
+    meta:{requiresAuth:true},
+    children:[
+      {
+        path: 'products',
+        name: 'Products',
+        component: () => import('../views/Products.vue'),
+        meta:{requiresAuth:true},
+      }
+    ]
   },
   {
     path: '*',
