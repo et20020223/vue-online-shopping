@@ -3,42 +3,31 @@
         <div class="sidebar-sticky">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                        <span data-feather="home"></span>
-                        Dashboard <span class="sr-only">(current)</span>
-                    </a>
+                    <i class="fas fa-box-open"></i>
+                    <router-link class="nav-link font-weight-bold" to="/admin/products">
+                        產品列表
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="file"></span>
-                        Orders
-                    </a>
+                    <i class="far fa-list-alt"></i>
+                    <router-link class="nav-link font-weight-bold" to="/admin/orders">
+                        訂單列表
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="shopping-cart"></span>
-                        Products
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="users"></span>
-                        Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="bar-chart-2"></span>
-                        Reports
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="layers"></span>
-                        Integrations
-                    </a>
+                    <i class="fas fa-ticket-alt"></i>
+                    <router-link class="nav-link font-weight-bold" to="/admin/coupon">
+                        優惠券
+                    </router-link>
                 </li>
             </ul>
         </div>
     </nav>
 </template>
+<style scope>
+    .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

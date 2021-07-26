@@ -8,6 +8,8 @@ import 'bootstrap'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import currencyFilter from  './filters/currency'
+import dateFilter from  './filters/date' 
 
 
 Vue.config.productionTip = false;
@@ -16,6 +18,8 @@ Vue.use(VueAxios,axios);
 axios.defaults.withCredentials =true;
 
 Vue.component('Loading',Loading);
+Vue.filter('currency',currencyFilter);
+Vue.filter('date',dateFilter);
 
 new Vue({
   router,

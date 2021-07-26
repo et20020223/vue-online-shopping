@@ -18,20 +18,49 @@ const routes = [
   {
     path: '/admin',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue'),
+    component: () => import('../views/dashboard/Dashboard.vue'),
     meta:{requiresAuth:true},
     children:[
       {
         path: 'products',
         name: 'Products',
-        component: () => import('../views/Products.vue'),
+        component: () => import('../views/dashboard/Products.vue'),
         meta:{requiresAuth:true},
-      }
+      },
+      {
+        path: 'orders',
+        name: 'Orders',
+        component: () => import('../views/dashboard/Orders.vue'),
+        meta:{requiresAuth:true},
+      },
+      {
+        path: 'coupon',
+        name: 'Coupon',
+        component: () => import('../views/dashboard/Coupon.vue'),
+        meta:{requiresAuth:true},
+      },
+    ]
+  },
+  {
+    path: '/index',
+    name:'index',
+    component: () => import('../views/shopping/Index.vue'),
+    children:[
+      {
+        path: 'products',
+        name: 'shoppingProducts',
+        component: () => import('../views/shopping/Products.vue'),
+      },
+      {
+        path: 'product/:id',
+        name: 'ProductDetail',
+        component: () => import('../views/shopping/ProductDetail.vue'),
+      },
     ]
   },
   {
     path: '*',
-    redirect:'Login'
+    redirect:'index'
   },
 ]
 
